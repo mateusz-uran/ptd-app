@@ -87,7 +87,7 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
     @AllArgsConstructor
     @NoArgsConstructor
     @Data
-    static class ErrorMessage {
+    public static class ErrorMessage {
         private int statusCode;
         private String timestamp;
         private String description;

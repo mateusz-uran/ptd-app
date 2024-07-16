@@ -14,6 +14,7 @@ import {
   selectedTripArray,
 } from "../slices/tripSelectedSlice";
 import { toast } from "react-toastify";
+import useStoredNick from "../../../hooks/useStoredNick";
 
 const TripTable = ({ cardId }) => {
   const { t } = useTranslation();
@@ -25,13 +26,12 @@ const TripTable = ({ cardId }) => {
   const tripEntities = useSelector(selectAllTripsFromCard);
   const selectedTrips = useSelector(selectedTripArray);
 
-  // TODO: read nickname from local storage
-  const nickname = "Jonh Doe";
+  const [nick, ,] = useStoredNick();
 
   const handleDelete = async () => {
     try {
       const selectedTripIds = selectedTrips.map((trip) => trip.id);
-      await deleteTrips({ selectedTripIds, nickname }).unwrap();
+      await deleteTrips({ selectedTripIds, nick }).unwrap();
       dispatch(clearSelectedTrips());
       toast.info(t("toastify.deletedSuccesfully"));
     } catch (err) {

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ProgressModal from "./ProgressModal";
 import { useTranslation } from "react-i18next";
 import { generatePdf, selectIsLoading } from "../../../api/pdf/pdfApiSlice";
+import useStoredNick from "../../../hooks/useStoredNick";
 
 const GeneratePDF = ({ storedCardId }) => {
   const { t } = useTranslation();
@@ -12,12 +13,11 @@ const GeneratePDF = ({ storedCardId }) => {
   const additionalInfo = useSelector(getAdditionalInfo);
 
   const isLoading = useSelector(selectIsLoading);
+  const [nick, ,] = useStoredNick();
 
   const generatePDFAndShow = async (page) => {
-    // TODO: retrieve nickname from local storage
-    let username = "John Doe";
     const cardId = storedCardId !== undefined ? storedCardId : urlCardId;
-    dispatch(generatePdf({ username, cardId, page, additionalInfo }));
+    dispatch(generatePdf({ nick, cardId, page, additionalInfo }));
   };
 
   return (

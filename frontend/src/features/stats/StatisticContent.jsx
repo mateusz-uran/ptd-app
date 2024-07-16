@@ -5,6 +5,7 @@ import MileageLineChart from "./MileageLineChart";
 import CardCounterPieChart from "./CardCounterPieChart";
 import "../../css/statistics.css";
 import LoadingDots from "../../components/LoadingDots";
+import useStoredNick from "../../hooks/useStoredNick";
 
 const StatisticContent = () => {
   const { t } = useTranslation();
@@ -12,8 +13,7 @@ const StatisticContent = () => {
   const currentYear = currentDate.getFullYear();
   const [statsYear, setStatsYear] = useState(currentYear);
 
-  // TODO: retrieve nickname from local storage
-  const nickname = "John Doe";
+  const [nick, ,] = useStoredNick();
   const {
     data: statisticFromYear,
     isSuccess,
@@ -22,7 +22,7 @@ const StatisticContent = () => {
     error,
   } = useGetStatisticsFromYearByUsernameQuery({
     year: statsYear,
-    username: nickname,
+    username: nick,
   });
 
   let sectionContent;

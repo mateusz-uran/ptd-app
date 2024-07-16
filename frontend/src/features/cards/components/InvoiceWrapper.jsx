@@ -11,6 +11,7 @@ import SelectedTripsTable from "../../trips/components/SelectedTripsTable";
 import { refetchCurrency } from "../../../api/currency/currencyApiSlice";
 import Invoice from "./Invoice";
 import LoadingDots from "../../../components/LoadingDots";
+import useStoredNick from "../../../hooks/useStoredNick";
 
 const InvoiceWrapper = () => {
   const { t } = useTranslation();
@@ -21,13 +22,13 @@ const InvoiceWrapper = () => {
   const [startDate, setStartDate] = useState(new Date());
   const formattedStartDate = format(startDate, "yyyy-MM-dd");
 
-  //TODO: read nickname from localstorage
-  const nickname = "John Doe";
+  const [nick, ,] = useStoredNick();
   const {
     data: hourRates,
     isSuccess,
     isLoading,
-  } = useRetrieveUserRatesQuery(nickname);
+    error,
+  } = useRetrieveUserRatesQuery(nick);
 
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
@@ -90,7 +91,9 @@ const InvoiceWrapper = () => {
           />
         </>
       ) : (
-        <div className="invoice-values empty">{t("misc.invoiceEmpty")}</div>
+        <div className="invoice-values empty">
+          Nie możesz wystawiać faktury byku, wydupcaj
+        </div>
       )}
     </div>
   );

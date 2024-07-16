@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate, useOutlet } from "react-router-dom";
+import { Link, useNavigate, useOutlet } from "react-router-dom";
 import logo from "../assets/logo-bg.png";
 import { BsBook, BsArchiveFill } from "react-icons/bs";
 import {
@@ -11,7 +11,7 @@ import { RiArrowDropLeftLine } from "react-icons/ri";
 import "../css/sidebar.css";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

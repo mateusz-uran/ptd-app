@@ -19,7 +19,7 @@ const Dashboard = () => {
   const { t } = useTranslation();
   const location = useLocation();
   const [nick] = useStoredNick();
-  const [cardDetails, storeCardDetails] = useStoredCardDetails();
+  const [cardDetails, ,] = useStoredCardDetails();
 
   const selectedTrips = useSelector(selectedTripArray);
 
@@ -34,12 +34,17 @@ const Dashboard = () => {
     isLoading,
     isSuccess,
   } = useGetLastTripByCardIdQuery(cardDetails.cardId, {
-    skip: nick === "empty",
+    skip: nick === "empty" && cardDetails.cardId,
   });
 
   let sectionContent;
 
-  if (nick === null || nick === "empty") {
+  if (
+    nick === null ||
+    nick === "empty" ||
+    cardDetails.cardId == 0 ||
+    cardDetails.cardNumber == ""
+  ) {
     sectionContent = <DashSkeleton />;
   } else {
     sectionContent = (

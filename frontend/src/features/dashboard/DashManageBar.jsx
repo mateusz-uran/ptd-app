@@ -51,7 +51,6 @@ const DashManageBar = ({
             {t("buttons.addCargo")}
           </button>
         </Link>
-        {"TODO: visible only for super_driver, hide if user is not"}
         <Link
           to={`${location.pathname}/${encodeURIComponent(
             selectedCardNumber

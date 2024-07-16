@@ -14,6 +14,7 @@ import {
   clearAdditionalData,
   getStoredCardIdAdditionalInfo,
 } from "../../additionalInfo/additionalInfoSlice";
+import useStoredCardDetails from "../../../hooks/useStoredCardDetails ";
 
 const CardSpecification = () => {
   const { t } = useTranslation();
@@ -24,12 +25,13 @@ const CardSpecification = () => {
     getStoredCardIdAdditionalInfo
   );
 
-  var cardAndUser = JSON.parse(localStorage.getItem("card_and_user"));
+  const [cardDetails, , ,] = useStoredCardDetails();
+
   if (
-    cardAndUser !== null &&
-    cardAndUser.cardId &&
+    cardDetails !== null &&
+    cardDetails.cardId &&
     selectedCardIdInAdditionalInfo !== null &&
-    cardAndUser.cardId !== selectedCardIdInAdditionalInfo
+    cardDetails.cardId !== selectedCardIdInAdditionalInfo
   ) {
     dispatch(clearAdditionalData);
   }
@@ -38,12 +40,11 @@ const CardSpecification = () => {
     setShowAdditionalInfo((prevState) => !prevState);
 
     // clear additional data when user will choose another card while data are saved
-    var cardAndUser = JSON.parse(localStorage.getItem("card_and_user"));
     if (
-      cardAndUser !== null &&
-      cardAndUser.cardId !== 0 &&
+      cardDetails !== null &&
+      cardDetails.cardId !== 0 &&
       selectedCardIdInAdditionalInfo !== null &&
-      cardAndUser.cardId !== selectedCardIdInAdditionalInfo
+      cardDetails.cardId !== selectedCardIdInAdditionalInfo
     ) {
       dispatch(clearAdditionalData());
     }

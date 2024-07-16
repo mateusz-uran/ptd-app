@@ -11,7 +11,6 @@ import { updateCardStatus } from "../slices/updateCardSlice";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { format } from "date-fns";
-import useStoredNick from "../../../hooks/useStoredNick";
 import useStoredCardDetails from "../../../hooks/useStoredCardDetails ";
 
 const CardItem = ({ cards }) => {

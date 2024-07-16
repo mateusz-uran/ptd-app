@@ -1,11 +1,9 @@
 package io.github.mateuszuran.ptdlitemono.service;
 
-import io.github.mateuszuran.ptdlitemono.service.logic.json.pojo.UserRates;
 import io.github.mateuszuran.ptdlitemono.exception.UserNotFoundException;
-import io.github.mateuszuran.ptdlitemono.service.logic.json.pojo.HourRateJsonSkeleton;
 import io.github.mateuszuran.ptdlitemono.service.logic.json.JsonReader;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import io.github.mateuszuran.ptdlitemono.service.logic.json.pojo.HourRateJsonSkeleton;
+import io.github.mateuszuran.ptdlitemono.service.logic.json.pojo.UserRates;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

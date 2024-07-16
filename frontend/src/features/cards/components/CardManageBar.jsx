@@ -57,7 +57,6 @@ const CardManageBar = () => {
             {t("buttons.addCargo")}
           </button>
         </Link>
-        {/* TODO: replace with different approach to render driver rates */}
         <Link
           to={"invoice"}
           className={`cargo-link ${
