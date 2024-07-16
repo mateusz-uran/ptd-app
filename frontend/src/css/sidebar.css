@@ -1,0 +1,216 @@
+.sidebar-wrapper {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 140px;
+  background: var(--sidebar-color);
+  padding: 10px 14px;
+  transition: var(--tran-05);
+  z-index: 999;
+}
+
+.sidebar header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+
+.sidebar header .logo {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar header .logo .image {
+  min-width: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar header .logo .image img {
+  border-radius: 5px;
+  width: 30px;
+}
+
+.sidebar header .logo .text {
+  font-size: 16px;
+  margin-left: 5px;
+  font-weight: 800;
+  color: var(--text-color);
+  opacity: 1;
+  transition: var(--tran-03);
+}
+
+.sidebar header .toggle-icon {
+  position: absolute;
+  right: -20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar header .toggle-icon .toggle {
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  transform: translateY(-50%) rotate(180deg);
+  height: 15px;
+  width: 15px;
+  font-size: 25px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--sidebar-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 45px);
+}
+
+.sidebar .menu ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .menu ul li:last-child {
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar .menu ul li:last-child.update:hover {
+  background: var(--skeleton-color);
+}
+
+.sidebar .menu ul li:last-child .text-wrapper.update,
+.sidebar .menu ul li:last-child .icon-wrapper .icon.update {
+  color: orange;
+}
+
+/* ==== toggled navbar ==== */
+.sidebar.close {
+  width: 58px;
+}
+
+.sidebar.close header .logo .text {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar.close header .toggle-icon .toggle {
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar.close ~ .outlet-wrapper {
+  left: 58px;
+  height: 100vh;
+  width: calc(100% - 58px);
+}
+
+.sidebar.close ul li .text-wrapper {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ==== sidebar content ==== */
+
+.sidebar ul li {
+  list-style: none;
+  margin-top: 1rem;
+  border-radius: 5px;
+  transition: var(--tran-03);
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.4rem 0;
+  margin: 0;
+}
+
+.sidebar ul li:hover {
+  background-color: var(--primary-color);
+}
+
+.sidebar ul li:hover a {
+  color: #fff;
+}
+
+.sidebar ul li a .icon-wrapper {
+  min-width: 30px;
+  display: flex;
+  justify-content: center;
+  transition: var(--tran-03);
+}
+
+.sidebar ul li .text-wrapper {
+  transition: var(--tran-03);
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ==== outlet ==== */
+
+.outlet-wrapper {
+  position: absolute;
+  top: 0;
+  top: 0;
+  left: 140px;
+  height: 100vh;
+  width: calc(100% - 140px);
+  background-color: var(--body-color);
+  transition: var(--tran-05);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+.logout-button button {
+  padding: 10px 0;
+  border: 0;
+  background: transparent;
+  display: flex;
+  width: 100%;
+  font-size: 18px;
+  color: var(--text-color);
+  font-weight: 400;
+  align-items: center;
+  border-radius: 5px;
+  transition: var(--tran-03);
+  font-size: 14px;
+}
+
+.logout-button button:hover {
+  background: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+.logout-button button .icon {
+  min-width: 30px;
+}
+
+.logout-button button span {
+  transition: var(--tran-03);
+}
+
+.sidebar.close .logout-button button span {
+  opacity: 0;
+  visibility: hidden;
+}

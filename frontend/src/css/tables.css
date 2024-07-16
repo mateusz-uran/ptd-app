@@ -1,0 +1,103 @@
+.trip-table,
+.fuel-table {
+  padding: 0.8rem 0;
+  padding-top: 0;
+  width: 100%;
+}
+
+.fuel-table .toggle-button-wrapper {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.trip-table h3,
+.fuel-table h3 {
+  font-size: 15px;
+  color: var(--text-color);
+  padding-left: 10px;
+  padding-bottom: 3px;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+
+table tr {
+  transition: var(--tran-03);
+}
+
+table tr th,
+table tr td {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* required css to make rounded table (below) */
+tr:first-child th:first-child {
+  border-top-left-radius: 5px;
+}
+tr:first-child th:last-child {
+  border-top-right-radius: 5px;
+}
+tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+
+table tr th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+}
+
+table tr th,
+table tr td {
+  padding: 5px 10px;
+  color: var(--text-color);
+  font-size: 12px;
+}
+
+.trip-table table tr th:first-child,
+.trip-table table tr td:first-child {
+  width: 5px;
+}
+
+.trip-table table tr td:first-child input[type="checkbox"] {
+  cursor: pointer;
+}
+
+table tr th.icon-wrapper button.delete-trip {
+  padding: 0;
+  font-size: 20px;
+}
+
+/*manage trip row style*/
+table tr th.manage-cell-wrapper,
+table tr td.manage-cell-wrapper {
+  width: 1rem;
+}
+
+table tr td .manage-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.fuel-table table tr td .manage-cell {
+  justify-content: flex-end;
+}
+
+.fuel-table table tr td .manage-cell button {
+  margin-left: 10px;
+}
+
+/*no response style*/
+table tr td .empty-response {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-color);
+}

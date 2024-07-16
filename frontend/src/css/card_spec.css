@@ -1,0 +1,99 @@
+.card-manage {
+  background: #fff;
+  padding: 0.5em 0.2em;
+  border-radius: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.card-manage h5 {
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.card-manage .buttons-wrapper {
+  display: flex;
+  width: 100%;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.card-manage .buttons-wrapper button:not(.pdf-button) {
+  margin-bottom: 5px;
+}
+
+.card-manage .buttons-wrapper button.pdf-button {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.card-manage .buttons-wrapper button.delete {
+  margin-left: auto;
+  background: rgba(255, 0, 0, 0.6);
+  color: #fff;
+}
+
+.card-manage .buttons-wrapper button.delete:hover {
+  background: rgba(255, 0, 0, 1);
+}
+
+.card-manage .buttons-wrapper .cargo-link.inactive {
+  pointer-events: none;
+}
+
+.card-spec-table {
+  overflow-x: auto;
+  background: #fff;
+  margin-top: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 10px;
+}
+
+.card-spec-table.additonal .main-h {
+  font-size: 15px;
+  color: var(--text-color);
+  padding-left: 10px;
+}
+
+.card-spec-table.additonal .arrow-wrapper {
+  display: flex;
+  padding-left: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-spec-table.additonal .arrow-button {
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(61, 127, 58, 1);
+  color: #fff;
+  border-radius: 5px;
+  margin: 0.2rem 0;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  transition: var(--tran-03);
+  font-weight: 600;
+}
+
+.card-spec-table.additonal .arrow-wrapper .arrow {
+  transition: var(--tran-03);
+}
+
+.card-spec-table.additonal .arrow-wrapper.visible .arrow {
+  transform: rotate(180deg);
+}
+
+.card-spec-table.additonal .arrow-button:hover {
+  background: rgba(61, 127, 58, 0.7);
+}
+
+.card-spec-table.additonal .arrow {
+  font-size: 1.5em;
+}
+
+@media only screen and (max-width: 384px) {
+  .card-manage {
+    overflow-x: scroll;
+  }
+}
