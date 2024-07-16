@@ -13,11 +13,11 @@ const GeneratePDF = ({ storedCardId }) => {
   const additionalInfo = useSelector(getAdditionalInfo);
 
   const isLoading = useSelector(selectIsLoading);
-  const [nick, ,] = useStoredNick();
+  const [nick, , ,] = useStoredNick();
 
   const generatePDFAndShow = async (page) => {
     const cardId = storedCardId !== undefined ? storedCardId : urlCardId;
-    dispatch(generatePdf({ nick, cardId, page, additionalInfo }));
+    dispatch(generatePdf({ username: nick, cardId, page, additionalInfo }));
   };
 
   return (

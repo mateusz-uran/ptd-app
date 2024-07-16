@@ -11,16 +11,12 @@ const initialState = {
 
 export const generatePdf = createAsyncThunk(
   "/pdf/generate-doc",
-  async (arg, { getState }) => {
-    const accessToken = getState().auth0.accessToken;
+  async (arg) => {
     try {
       const response = await axios.post(
         `${API_URL}/pdf/generate-doc`,
         arg.additionalInfo,
         {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
           params: {
             username: arg.username,
             cardId: arg.cardId,

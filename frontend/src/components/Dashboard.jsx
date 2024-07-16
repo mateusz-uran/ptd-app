@@ -18,7 +18,7 @@ import useStoredCardDetails from "../hooks/useStoredCardDetails ";
 const Dashboard = () => {
   const { t } = useTranslation();
   const location = useLocation();
-  const [nick] = useStoredNick();
+  const [nick, , ,] = useStoredNick();
   const [cardDetails, ,] = useStoredCardDetails();
 
   const selectedTrips = useSelector(selectedTripArray);
