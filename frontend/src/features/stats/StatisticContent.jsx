@@ -20,10 +20,13 @@ const StatisticContent = () => {
     isError,
     isLoading,
     error,
-  } = useGetStatisticsFromYearByUsernameQuery({
-    year: statsYear,
-    username: nick,
-  });
+  } = useGetStatisticsFromYearByUsernameQuery(
+    {
+      year: statsYear,
+      username: nick,
+    },
+    { skip: nick === "empty" }
+  );
 
   let sectionContent;
 

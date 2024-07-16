@@ -20,7 +20,7 @@ const Cards = () => {
     isSuccess,
     isError,
     isLoading,
-  } = useGetLastCardsQuery(nick);
+  } = useGetLastCardsQuery(nick, { skip: nick === "empty" });
 
   if (isLoading) {
     cards = (

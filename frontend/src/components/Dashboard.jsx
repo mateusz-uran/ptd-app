@@ -34,7 +34,7 @@ const Dashboard = () => {
     isLoading,
     isSuccess,
   } = useGetLastTripByCardIdQuery(cardDetails.cardId, {
-    skip: nick === "empty" && cardDetails.cardId,
+    skip: nick === "empty" && cardDetails.cardId === 0,
   });
 
   let sectionContent;
