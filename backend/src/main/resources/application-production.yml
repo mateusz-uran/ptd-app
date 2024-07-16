@@ -1,0 +1,24 @@
+server:
+  port: ${PORT}
+
+pdf:
+  csv:
+    link: ${CSV_LINK}
+hour-rate:
+  json:
+    link: ${JSON_LINK}
+
+frontend:
+  urls: ${FRONTEND_API_URI}
+backend:
+  url: ${BACKEND_API_URL}
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    driver-class-name: org.postgresql.Driver
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
