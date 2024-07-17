@@ -15,7 +15,7 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: jdbc:postgresql://localhost:7432/ptd_db
+    url: jdbc:postgresql://localhost:8432/ptd_db
     driver-class-name: org.postgresql.Driver
     username: mateuszuran
     password: local123
