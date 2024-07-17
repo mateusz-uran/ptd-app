@@ -1,5 +1,5 @@
-server:
-  port: ${PORT}
+backend:
+  url: ${BACKEND_API_URL}
 
 pdf:
   csv:
@@ -7,11 +7,6 @@ pdf:
 hour-rate:
   json:
     link: ${JSON_LINK}
-
-frontend:
-  urls: ${FRONTEND_API_URI}
-backend:
-  url: ${BACKEND_API_URL}
 
 spring:
   jpa:
@@ -22,3 +17,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
+
+application:
+  cors:
+    origins: ${CORS_LINKS}

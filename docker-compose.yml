@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  ptd-api:
+    container_name: ptd-api
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "6565:6565"
+    environment:
+      - SERVER_PORT=6565
+      - BACKEND_API_URL=${BACKEND_URL}
+      - SPRING_DATASOURCE_URL=${DB_URL}
+      - SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+      - CORS_LINKS=${CORS}
+      - APP_VERSION=1.0.0
+      - CSV_LINK=${CSV}
+      - JSON_LINK=${JSON}
+    env_file:
+      - .env
+    networks:
+      - ptd-network
+
+  ptd-ui:
+    container_name: ptd-ui
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - "9595:9595"
+    networks:
+      - ptd-network
+
+networks:
+  ptd-network:
+    driver: bridge
