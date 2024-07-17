@@ -1,6 +1,19 @@
 version: "3.8"
 
 services:
+  ptd-db:
+    image: postgres:latest
+    container_name: ptd-db
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ptd_db
+      PGPORT: 7432
+    ports:
+      - "7432:7432"
+    networks:
+      - ptd-network
+
   ptd-api:
     container_name: ptd-api
     build:
@@ -20,6 +33,8 @@ services:
       - JSON_LINK=${JSON}
     env_file:
       - .env
+    depends_on:
+      - ptd-db
     networks:
       - ptd-network
 
