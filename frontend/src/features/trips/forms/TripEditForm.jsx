@@ -6,11 +6,12 @@ import { translatedTripSingleSchema } from "../inputs/tripValidations";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { translateTripInputs } from "../inputs/tripInputs";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { stopEditing } from "../slices/tripUpdateSlice";
 import { createPortal } from "react-dom";
 import { useEditTripMutation } from "../../../api/trips/tripsApiSlice";
 import { useTranslation } from "react-i18next";
+import useStoredNick from "../../../hooks/useStoredNick";
 
 const TripEditForm = ({ tripToEdit }) => {
   const { t } = useTranslation();
@@ -19,8 +20,7 @@ const TripEditForm = ({ tripToEdit }) => {
   const tripInputs = translateTripInputs();
   const tripSchemaSingle = translatedTripSingleSchema();
 
-  // TODO: read nickname from local storage
-  const nickname = "Jonh Doe";
+  const [nick] = useStoredNick();
 
   const {
     handleSubmit,
@@ -32,7 +32,7 @@ const TripEditForm = ({ tripToEdit }) => {
 
   const onSubmit = async (data, event) => {
     event.preventDefault();
-    await editTrip({ tripId: data.id, updatedTrip: data, nickname });
+    await editTrip({ tripId: data.id, updatedTrip: data, nick });
     dispatch(stopEditing());
   };
 

@@ -17,6 +17,7 @@ import Cards from "./features/cards/components/Cards";
 import InvoiceWrapper from "./features/cards/components/InvoiceWrapper";
 import CRMForm from "./features/crm/CrmForm";
 import UpdateInformations from "./features/updates/components/UpdateInformations";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
   const isOpen = useSelector(isModalOpen);
@@ -26,7 +27,14 @@ function App() {
       {isOpen && <Modal />}
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/home" element={<Sidebar />}>
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+            </ProtectedRoute>
+          }
+        >
           <Route path="/home/dashboard" element={<Dashboard />} />
           <Route path="/home/cards" element={<Cards />} />
           <Route path="/home/stats" element={<Statistics />} />

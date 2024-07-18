@@ -92,6 +92,11 @@
   min-width: 90px;
 }
 
+.welcome-page .link-wrapper .link.disabled {
+  pointer-events: none;
+  opacity: 0.2;
+}
+
 .welcome-page .link-wrapper .link a {
   display: flex;
   flex-direction: column;

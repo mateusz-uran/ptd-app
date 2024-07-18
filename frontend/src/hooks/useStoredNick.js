@@ -1,13 +1,22 @@
 import { useState, useEffect, useCallback } from "react";
 
 const useStoredNick = () => {
-  const [nick, setNick] = useState("empty");
+  const [nick, setNick] = useState(() => {
+    const storedNick = localStorage.getItem("nick");
+    return storedNick || "empty";
+  });
 
   useEffect(() => {
-    const storedNick = localStorage.getItem("nick");
-    if (storedNick) {
-      setNick(storedNick);
-    }
+    const handleStorageChange = () => {
+      const storedNick = localStorage.getItem("nick");
+      setNick(storedNick || "empty");
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   const storeNick = useCallback((nick) => {

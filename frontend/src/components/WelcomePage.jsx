@@ -1,6 +1,6 @@
 import logo from "../assets/logo-bg.png";
 import "../css/welcome_page.css";
-import { MdLogin, MdDashboard, MdOutlineQueryStats } from "react-icons/md";
+import { MdDashboard, MdOutlineQueryStats } from "react-icons/md";
 import { BsBook, BsArchiveFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -29,6 +29,8 @@ const WelcomePage = () => {
       )}
     </nav>
   );
+
+  const disableLinkClass = !nick || nick === "empty" ? "disabled" : "";
 
   return (
     <section className="welcome-page">
@@ -60,25 +62,25 @@ const WelcomePage = () => {
         </div>
       </aside>
       <div className="link-wrapper">
-        <div className="link">
+        <div className={`link ${disableLinkClass}`}>
           <Link to={"/home/dashboard"}>
             <MdDashboard className="icon" />
             <span>{t("misc.dashboard")}</span>
           </Link>
         </div>
-        <div className="link">
+        <div className={`link ${disableLinkClass}`}>
           <Link to={"/home/cards"}>
             <BsBook className="icon" />
             <span>{t("misc.cards")}</span>
           </Link>
         </div>
-        <div className="link">
+        <div className={`link ${disableLinkClass}`}>
           <Link to={"/home/stats"}>
             <MdOutlineQueryStats className="icon" />
             <span>{t("misc.stats")}</span>
           </Link>
         </div>
-        <div className="link">
+        <div className={`link ${disableLinkClass}`}>
           <Link to={"/home/archive"}>
             <BsArchiveFill className="icon" />
             <span>{t("misc.arch")}</span>
