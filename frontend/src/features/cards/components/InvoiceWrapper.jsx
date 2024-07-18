@@ -28,7 +28,7 @@ const InvoiceWrapper = () => {
     isSuccess,
     isLoading,
     error,
-  } = useRetrieveUserRatesQuery(nick);
+  } = useRetrieveUserRatesQuery(nick, { skip: nick === "empty" });
 
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
