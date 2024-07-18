@@ -154,6 +154,12 @@
   padding: 25px 10px;
 }
 
+.welcome-page aside .wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .welcome-page aside .wrapper input {
   max-width: 150px;
 }

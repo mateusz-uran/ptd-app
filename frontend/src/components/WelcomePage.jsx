@@ -12,7 +12,8 @@ const WelcomePage = () => {
   const [nick, setNick] = useStoredNick();
   const [inputNick, setInputNick] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     setNick(inputNick);
     setInputNick("");
   };
@@ -41,19 +42,21 @@ const WelcomePage = () => {
       </div>
       <aside>
         <div className="wrapper">
-          <label htmlFor="nickname" className="primary-label">
-            Podaj nick parówo
-          </label>
-          <input
-            type="text"
-            id="nickname"
-            className="primary-input"
-            value={inputNick}
-            onChange={(e) => setInputNick(e.target.value)}
-          />
-          <button className="primary-btn" onClick={handleLogin}>
-            Zapisz
-          </button>
+          <form onSubmit={handleLogin}>
+            <label htmlFor="nickname" className="primary-label">
+              Podaj nick parówo
+            </label>
+            <input
+              type="text"
+              id="nickname"
+              className="primary-input"
+              value={inputNick}
+              onChange={(e) => setInputNick(e.target.value)}
+            />
+            <button type="submit" className="primary-btn">
+              Zapisz
+            </button>
+          </form>
         </div>
       </aside>
       <div className="link-wrapper">
